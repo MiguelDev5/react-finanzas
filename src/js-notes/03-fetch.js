@@ -8,29 +8,27 @@ peticion
     .then(resp => resp.json())
     .then(({data}) => {
         const {url} = data.images.original;
-        console.log(url);
-        const img = document.createElement('img');
-        img.src = url;
-        document.body.append(img);
+        // console.log(url);
+        // const img = document.createElement('img');
+        // img.src = url;
+        // document.body.append(img);
     })
     .catch(console.error);
 
 // 03 - Async Await
 
-const getImagen = async() => {
+export const getImagen = async() => {
     try {
         const resp = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`);
         const {data} =  await resp.json();
-        console.log("data", data);
+        // console.log("data", data);
         const {url} = data.images.original;
 
-        console.log(url);
-        const img = document.createElement('img');
-        img.src = url;
-        document.body.append(img);
+        return url;
+        // const img = document.createElement('img');
+        // img.src = url;
+        // document.body.append(img);
     }catch (e) {
         // ERRORS
     }
 }
-
-getImagen();
